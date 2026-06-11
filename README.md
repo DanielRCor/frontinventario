@@ -1,73 +1,185 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Inventario Frontend
 
-Currently, two official plugins are available:
+Interfaz web para la gestión de inventario, compras, ventas, facturación, despachos y almacenes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+# Descripción
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Este proyecto proporciona una interfaz moderna desarrollada con React para administrar los principales procesos operativos de una empresa desde el navegador.
 
-## Expanding the ESLint configuration
+Los módulos disponibles incluyen:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Inicio de sesión y autenticación.
+* Gestión de productos.
+* Gestión de almacenes.
+* Órdenes de compra.
+* Ingreso de mercadería.
+* Facturación.
+* Despachos.
+* Dashboard y consultas generales.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Tecnologías Utilizadas
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* React
+* Vite
+* TypeScript
+* Tailwind CSS
+* React Query
+* Axios
+* React Router DOM
+
+---
+
+# Requisitos Previos
+
+Antes de ejecutar el proyecto asegúrate de tener instalado:
+
+* Node.js
+* npm
+* Backend del sistema funcionando correctamente
+
+---
+
+# Instalación
+
+## 1. Clonar el repositorio
+
+Descarga el proyecto o clónalo desde GitHub.
+
+## 2. Ingresar a la carpeta del proyecto
+
+```bash
+cd inventario-frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 3. Instalar dependencias
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+---
+
+# Configuración del Backend
+
+Este frontend consume una API REST independiente.
+
+Debes asegurarte de que el backend se encuentre ejecutándose y accesible desde el frontend.
+
+Por defecto, la aplicación espera la siguiente URL:
+
+```text
+http://localhost:3000/api
+```
+
+Si utilizas otra dirección o puerto, modifica el archivo `.env`.
+
+## Archivo .env
+
+```env
+VITE_API_URL=http://localhost:3000/api
+```
+
+---
+
+# Ejecutar el Frontend
+
+## Modo Desarrollo
+
+```bash
+npm run dev
+```
+
+Luego abre tu navegador en:
+
+```text
+http://localhost:5173
+```
+
+## Modo Producción
+
+Generar build:
+
+```bash
+npm run build
+```
+
+Vista previa local:
+
+```bash
+npm run preview
+```
+
+---
+
+# Funcionalidades Principales
+
+* Autenticación de usuarios.
+* Registro y mantenimiento de productos.
+* Administración de almacenes.
+* Consulta de stock por almacén.
+* Gestión de órdenes de compra.
+* Registro de ingreso de mercadería.
+* Emisión de facturas y boletas.
+* Gestión de despachos.
+* Dashboard operativo.
+* Consultas y reportes.
+
+---
+
+# Estructura del Proyecto
+
+```text
+src/
+│
+├── api/          # Servicios y llamadas HTTP
+├── components/   # Componentes reutilizables
+├── layout/       # Layouts de la aplicación
+├── pages/        # Vistas y pantallas
+├── router/       # Configuración de rutas
+├── hooks/        # Hooks personalizados
+├── utils/        # Utilidades generales
+└── assets/       # Recursos estáticos
+```
+
+---
+
+# Scripts Disponibles
+
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
+```
+
+---
+
+# Flujo General del Sistema
+
+1. El usuario inicia sesión.
+2. Consulta información del dashboard.
+3. Gestiona productos y almacenes.
+4. Registra órdenes de compra.
+5. Registra ingresos de mercadería.
+6. Consulta el stock actualizado.
+7. Emite comprobantes de venta.
+8. Gestiona despachos y seguimiento.
+9. Consulta reportes e indicadores.
+
+---
+
+# Notas Importantes
+
+* El frontend depende completamente del backend.
+* Verifica que la API esté disponible antes de iniciar sesión.
+* Si cambias el dominio o puerto del backend, actualiza la variable `VITE_API_URL`.
+* El proyecto está optimizado para desarrollo con Vite.
+* Se recomienda utilizar Node.js LTS para evitar problemas de compatibilidad.
+
+---

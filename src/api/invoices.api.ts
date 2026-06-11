@@ -36,6 +36,7 @@ export interface Invoice {
   customer?: any;
   warehouse?: any;
   creator?: any;
+  dispatches?: Dispatch[];
   details?: InvoiceDetail[];
 }
 

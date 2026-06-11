@@ -45,7 +45,7 @@ export default function AppLayout() {
       <aside className="hidden w-64 flex-col border-r bg-muted/20 md:flex">
         <div className="flex h-14 items-center border-b px-4 font-bold text-primary">
           <Package className="mr-2 h-5 w-5" />
-          Yuntas ERP
+          INVENTARIO ERP
         </div>
         <div className="flex-1 overflow-auto py-2">
           <nav className="grid items-start px-2 text-sm font-medium">
